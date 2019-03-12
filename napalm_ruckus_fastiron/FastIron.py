@@ -645,16 +645,15 @@ class FastIronDriver(NetworkDriver):
         vtoken = output.find('VLAN') + len('VLAN') + 1
 
         if vtoken != 0:                # router version, does not contain default vlan in arp
-            token = vtoken
+            token = vtoken             # defaults to switch version
 
         output = FastIronDriver.__creates_list_of_nlines(output[token:len(output)])
         arp_table = list()
 
         for val in output:
-
             check = val
-            if len(check.split()) < 7:
-                continue
+            if len(check.split()) > 7:
+                return None
 
             if vtoken == 0:
                 __, ip, mac, __, age, interface, __ = val.split()
