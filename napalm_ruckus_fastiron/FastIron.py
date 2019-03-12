@@ -632,8 +632,7 @@ class FastIronDriver(NetworkDriver):
 
         raise MergeConfigException("Configuration error")
 
-    def get_arp_table(self):
-
+    def get_arp_table(self, vrf=""):
         """
         Returns a list of dictionaries having the following set of keys:
             * interface (string)
