@@ -652,8 +652,8 @@ class FastIronDriver(NetworkDriver):
 
         for val in output:
             check = val
-            if len(check.split()) > 7:
-                return None
+            if len(check.split()) < 7:
+                continue
 
             if vtoken == 0:
                 __, ip, mac, __, age, interface, __ = val.split()
