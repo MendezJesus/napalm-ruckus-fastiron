@@ -1,6 +1,4 @@
 [![Build Status](https://travis-ci.org/MendezJesus/napalm-ruckus-fastiron.svg?branch=master)](https://travis-ci.org/MendezJesus/napalm-ruckus-fastiron)
-[![PyPI](https://img.shields.io/pypi/v/napalm-ruckus-fastiron.svg)](https://pypi.python.org/pypi/napalm-ruckus-fastiron)
-[![PyPI](https://img.shields.io/pypi/dm/napalm-ruckus-fastiron.svg)](https://pypi.python.org/pypi/napalm-ruckus-fastiron)
 [![Coverage Status](https://coveralls.io/repos/github/MendezJesus/napalm-ruckus-fastiron/badge.svg?branch=master)](https://coveralls.io/github/MendezJesus/napalm-ruckus-fastiron?branch=master)
 
 NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library that implements a set of functions to interact with different router vendor devices using a unified API.
