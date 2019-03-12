@@ -18,6 +18,7 @@ Configuration Support Matrix
 Getters Support Matrix
 -----------------------------------
 - get_arp_table()
+
 - get_config()
 - get_environment()
 - get_facts()
@@ -34,38 +35,3 @@ Getters Support Matrix
 - get_users()
 - IsAlive()
 
-Currently Testing [not publicly available]
-=======
-- load_template()
-- get_optics()
-- get_bgp_congfig()
-- get_bgp_neighbors()
-- get_bgp_neighbors_detail()
-- get_route_to()
-- get_snmp information()
-- ping()
-- tracerroute()
-
-Roapmapped
-=======
-- get_ipv6_neighbors_table
-
-Requirements
-=======
-- Netmiko v2.0.2
-- FastIron v8.0.30
-
-Netmiko methods
-=======
-- send_config()
-- config_mode()
-- check_config_mode()
-- exit_config_mode()
-- enable()
-- exit_enable()
-- clear_buffer()
-- prompt()
-
-Authors
-=======
- * Jesús Mendez ([mendezj@staticoverride.us](mailto:mendezj@staticoverride.us))
