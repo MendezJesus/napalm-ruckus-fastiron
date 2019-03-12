@@ -631,3 +631,42 @@ class FastIronDriver(NetworkDriver):
                 raise MergeConfigException("Configuration error")
 
         raise MergeConfigException("Configuration error")
+
+    def get_arp_table(self):
+
+        """
+        Returns a list of dictionaries having the following set of keys:
+            * interface (string)
+            * mac (string)
+            * ip (string)
+            * age (float)
+        """
+        output = self.device.send_command('show arp')
+        token = output.find('Status') + len('Status') + 1
+        vtoken = output.find('VLAN') + len('VLAN') + 1
+
+        if vtoken != 0:                # router version, does not contain default vlan in arp
+            token = vtoken
+
+        output = FastIronDriver.__creates_list_of_nlines(output[token:len(output)])
+        arp_table = list()
+
+        for val in output:
+
+            check = val
+            if len(check.split()) < 7:
+                continue
+
+            if vtoken == 0:
+                __, ip, mac, __, age, interface, __ = val.split()
+            else:
+                __, ip, mac, __, age, interface, __, vlan = val.split()
+
+            arp_table.append({
+                'interface': interface,
+                'mac': mac,
+                'ip': ip,
+                'age': float(age),
+            })
+
+        return arp_table
