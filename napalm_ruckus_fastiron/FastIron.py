@@ -669,30 +669,3 @@ class FastIronDriver(NetworkDriver):
 
         return arp_table
     
-    def get_ntp_peers(self):
-
-        """
-        Returns the NTP peers configuration as dictionary.
-        The keys of the dictionary represent the IP Addresses of the peers.
-        Inner dictionaries do not have yet any available keys.
-        Example::
-            {
-                '192.168.0.1': {},
-                '17.72.148.53': {},
-                '37.187.56.220': {},
-                '162.158.20.18': {}
-            }
-        """
-        output = self.device.send_command('show ntp associations')
-        token = output.find('disp') + len('disp') + 1
-        output = output[token:len(output)]
-        nline = FastIronDriver.__creates_list_of_nlines(output)
-        ntp_peers = dict()
-        for val in range(len(nline)-1):
-            val = nline[val].replace("~", " ")
-            val = val.split()
-            ntp_peers.update({
-                val[1]: {}
-            })
-
-        return ntp_peers
