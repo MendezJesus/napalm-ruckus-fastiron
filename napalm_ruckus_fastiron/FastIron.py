@@ -668,4 +668,3 @@ class FastIronDriver(NetworkDriver):
             })
 
         return arp_table
-    
